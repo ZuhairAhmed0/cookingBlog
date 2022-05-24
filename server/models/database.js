@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-mongoose.connect(process.env.DB);
+mongoose.connect(process.env.DB, { useNewUrlParser: true, useUnifiedTopology: true});
 
 const db = mongoose.connection;
 
@@ -11,7 +11,6 @@ db.once('open', () => {
     console.log("database connected!");
 })
 
-
-// Models 
+// Models
 require('../models/Category');
 require('../models/Recipe');
