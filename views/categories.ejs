@@ -1,0 +1,39 @@
+<h2 class="pb-5">Explore Categories</h2>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/categories">Categories</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Explore Categories</li>
+    </ol>
+</nav>
+
+<div class="row row-cols-2 row-cols-lg-5 g-3 g-gl-2 mb-4">
+
+    <% if(typeof categories !== "undefined" && categories.length  > 0) { %> 
+        <% categories.forEach(({name, image}, index) => { %> 
+            <a href="/categories/<%= name %>" class="col text-center category__link">
+                <div class="category__img category__img--large shadow">
+                    <img src="/img/<%= image %>" alt="<%= name %>" loading="lazy">
+                </div>
+                <div class="py-3">
+                    <%= name %>
+                </div>
+            </a>
+        <% })  %> 
+    <% } %> 
+
+    <% if(typeof categoryById !== "undefined" && categoryById.length  > 0) { %> 
+        <% categoryById.forEach(({name, image, _id}, index) => { %> 
+            <a href="/recipe/<%= _id  %>" class="col text-center category__link">
+                <div class="category__img category__img--large shadow">
+                    <img src="/uploads/<%= image %>" alt="<%= name %>" loading="lazy">
+                </div>
+                <div class="py-3">
+                    <%= name %>
+                </div>
+            </a>
+        <% })  %> 
+    <% } %> 
+
+</div>
