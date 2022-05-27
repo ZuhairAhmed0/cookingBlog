@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 
 mongoose.connect(process.env.DB, { useNewUrlParser: true, useUnifiedTopology: true});
-
+//DB=mongodb+srv://Recipes:Recipes@cluster0.olpgp.mongodb.net/?retryWrites=true&w=majority
+// , { useNewUrlParser: true, useUnifiedTopology: true}
 const db = mongoose.connection;
 
 

@@ -1,5 +1,4 @@
 require("../models/database");
-const { versions } = require("process");
 const Category = require("../models/Category");
 const Recipe = require("../models/Recipe");
 
@@ -58,7 +57,6 @@ exports.exploreCategoriesById = async (req, res) => {
     const categoryById = await Recipe.find({ category: categoryId }).limit(
       limitNumber
     );
-    console.log(categoryById);
     res.render("categories", { title: "categories", categoryById });
   } catch (error) {
     res.status(500).send({ message: error.message || "error occured" });

@@ -9,7 +9,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 require("dotenv").config();
-// app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json("CookingBlogSecure"));
 app.use(fielUpload());
 app.use(flash());
@@ -33,3 +33,5 @@ const routes = require("./server/routes/recipeRoutes.js");
 app.use("/", routes);
 
 app.listen(port, () => console.log(`listening yo port ${port}`));
+
+//DB=mongodb+srv://Recipes:Recipes@cluster0.olpgp.mongodb.net/?retryWrites=true&w=majority
